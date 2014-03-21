@@ -1,0 +1,28 @@
+# Makefile - mark, don't (re)move this, a sed script needs it
+
+all: init
+	$(MAKE) make $@
+
+make:
+	@$(BSHELL) -c "exit 0"
+
+.PRECIOUS: Makefile
+
+init:
+	$(BSHELL) ./initmake $(BSHELL) "$(SHELL)" "$(RM)" "$(MV)" "$(LN)" \
+ "$(SEARCHLIBS)" \
+ "$(LIBPATHS)" \
+ $(DEVNULL) "$(MAKE)" $(O) \
+ "$(CC)" "$(CFLAGS1)" "$(LDFLAGS1)" "$(BINSS)" \
+ "$(MANS1S)" \
+ "$(MANS5S)" "$(SUBDIRS)" \
+ "$(VISIBLE_BINDIR)" \
+ "$(STRIP)"
+
+makefiles makefile Makefiles Makefile: init
+	@$(BSHELL) -c "exit 0"
+
+help target targets \
+bins mans install.bin install.man install recommend install-suid clean setid \
+realclean veryclean clobber deinstall $(BINSS) multigram: init
+	$(MAKE) make $@
