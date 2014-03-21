@@ -184,7 +184,7 @@ recommend: recommend.$(O) sublib.$(O)
 clean:
 	$(RM) -r _locktest
 	$(RM) procmail.$(O) $(PM_OBJ) lockfile.$(O) $(LF_OBJ) formail.$O \
- $(FM_OBJ) multigram.$(O) $(MG_OBJ) $(BINSS) multigram ../autoconf.h \
+ $(FM_OBJ) multigram.$(O) $(MG_OBJ) $(BINSS) multigram \
  _autotst* lookfor _locktst* grepfor recommend recommend.$(O) manconf \
  _Makefile lock.log *core* targetdir.h setid setid.$(O) gethome \
  gethome.$(O) make_n realloc.log
